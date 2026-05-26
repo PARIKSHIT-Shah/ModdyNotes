@@ -247,7 +247,9 @@
   transition: all var(--transition);
 }
 
-.search-input::placeholder { color: var(--text-dim); }
+.search-input::placeholder {
+  color: var(--text-dim);
+}
 
 .search-input:focus {
   border-color: var(--accent);
@@ -337,8 +339,13 @@
 }
 
 @keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* ── Empty state ── */

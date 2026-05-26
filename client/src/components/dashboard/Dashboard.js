@@ -6,8 +6,7 @@ import NoteModal from '../notes/NoteModal';
 import './Dashboard.css';
 
 const CATEGORIES = [
-  'All', 'Personal', 'Work', 'Study', 'Health',
-  'Finance', 'Shopping', 'Travel', 'Ideas', 'Other',
+  'All', 'Important ', ' Personalwork ', 'assignments', 'projects', 'ideas', 'reminders', 'exams', 'viva', 'others'
 ];
 
 const Dashboard = () => {
@@ -89,8 +88,13 @@ const Dashboard = () => {
                 </span>
               )}
             </button>
+
           ))}
+          <button className="sidebar-nav-item" onClick={() => setSearch('')} title="Search">
+            search for your subjects
+          </button>
         </nav>
+
 
         <div className="sidebar-user">
           <div className="sidebar-avatar">
