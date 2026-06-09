@@ -51,3 +51,9 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 ModdyNotes server running on port ${PORT}`);
 });
+const cors = require('cors');
+app.use(cors({
+  origin: 'https://moddy-notes-mgyg-kl8tty02w-parikshit-shahs-projects.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
