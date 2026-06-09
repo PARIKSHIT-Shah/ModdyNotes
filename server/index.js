@@ -21,6 +21,11 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/notes', require('./routes/notes'));
 
+// Root route (fixes "Cannot GET /")
+app.get('/', (req, res) => {
+  res.json({ message: 'ModdyNotes API is running!' });
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'ModdyNotes API is running' });
