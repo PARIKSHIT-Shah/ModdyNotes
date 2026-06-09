@@ -12,16 +12,26 @@ connectDB();
 
 // Middleware
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'https://moddynotes.onrender.com',
+  origin: [
+    'https://moddy-notes-mgyg.vercel.app',
+    'http://localhost:5173',
+    'http://localhost:3000',
+  ],
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+
+// Handle preflight requests
+app.options('*', cors());
+
 app.use(express.json());
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/notes', require('./routes/notes'));
 
-// Root route (fixes "Cannot GET /")
+// Root route
 app.get('/', (req, res) => {
   res.json({ message: 'ModdyNotes API is running!' });
 });
